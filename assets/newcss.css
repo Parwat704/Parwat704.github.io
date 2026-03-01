@@ -1163,3 +1163,32 @@ img {
     bottom: -4.5rem;
   }
 }
+
+/* holi theme /
+
+/* ==================== HOLI THEME ==================== */
+
+body.holi-theme {
+  background: linear-gradient(45deg, #ff0080, #ff8c00, #40e0d0, #9b59b6);
+  background-size: 400% 400%;
+  animation: holiGradient 10s ease infinite;
+}
+
+@keyframes holiGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Add colorful glow to headings */
+body.holi-theme h1,
+body.holi-theme h2,
+body.holi-theme h3 {
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #f0f;
+}
+
+/* Buttons colorful */
+body.holi-theme .button {
+  background: linear-gradient(90deg, #ff0080, #00ffff);
+  border: none;
+}
