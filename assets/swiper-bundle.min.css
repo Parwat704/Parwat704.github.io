@@ -559,3 +559,45 @@ button.swiper-pagination-bullet {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+
+
+
+/** HOli theme added //
+/*==================== HOLI TEMPORARY THEME ====================*/
+
+const holiTheme = "holi-theme";
+const holiEndKey = "holi-end-date";
+
+// Function to activate Holi theme
+function activateHoliTheme() {
+  document.body.classList.add(holiTheme);
+
+  // Set expiry date (2 days from now)
+  const now = new Date().getTime();
+  const twoDays = 2 * 24 * 60 * 60 * 1000;
+  const expiryDate = now + twoDays;
+
+  localStorage.setItem(holiEndKey, expiryDate);
+}
+
+// Function to check if Holi theme should still be active
+function checkHoliTheme() {
+  const expiryDate = localStorage.getItem(holiEndKey);
+
+  if (!expiryDate) {
+    activateHoliTheme();
+  } else {
+    const now = new Date().getTime();
+
+    if (now < expiryDate) {
+      document.body.classList.add(holiTheme);
+    } else {
+      document.body.classList.remove(holiTheme);
+      localStorage.removeItem(holiEndKey);
+    }
+  }
+}
+
+// Run when page loads
+checkHoliTheme();
